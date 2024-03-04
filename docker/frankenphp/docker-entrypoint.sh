@@ -23,6 +23,9 @@ if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 	fi
 
 	if [ -z "$(ls -A 'vendor/' 2>/dev/null)" ]; then
+	  composer require doctrine/dbal doctrine/doctrine-bundle doctrine/doctrine-migrations-bundle
+	  composer require doctrine/orm symfony/twig-bundle symfony/webpack-encore-bundle
+	  composer require twig/extra-bundle twig/twig
 		composer install --prefer-dist --no-progress --no-interaction
 	fi
 
